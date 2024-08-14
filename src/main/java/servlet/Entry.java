@@ -41,10 +41,21 @@
 /*    */ 
 /*    */   
 /*    */   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-/* 44 */     long ext = (long)Math.floor(Math.random() * 9.0E9D);
+/* 44 */    //old was like this
+			//long ext = (long)Math.floor(Math.random() * 9.0E9D);
 /*    */     
-/* 46 */     String ext_id = String.valueOf(ext);
-/*    */     
+/* 46 */     //String ext_id = String.valueOf(ext);
+
+		// new
+			String ext_id="";
+
+			ext_id = request.getParameter("ext_ref");
+			System.out.println("Ext_ref from parameter --"+ext_id);
+			if(ext_id==null)
+			{
+				 long ext = (long)Math.floor(Math.random() * 9.0E9D);
+				 ext_id = String.valueOf(ext);
+			}
 /* 48 */     String serviceUrl = DBMethods.getServiceUrl();
 /* 49 */     serviceUrl = String.valueOf(serviceUrl) + ext_id;
 /* 50 */     System.out.println(serviceUrl);

@@ -11,7 +11,7 @@
 /*    */       
 /* 12 */       conn = DriverManager.getConnection(
 /* 13 */           "jdbc:mysql://5.189.169.12:3306/ndoto?autoReconnect=true&useSSL=false&enabledTLSProtocols=TLSv1.2&serverTimezone=UTC", 
-/* 14 */           "root", "gloadmin123");
+/* 14 */           "visiontrek", "0Gloadmin123$");
 /* 15 */       System.out.println("ndoto DB connected");
 /*    */     }
 /* 17 */     catch (Exception e) {
@@ -54,7 +54,3 @@
 /*    */ }
 
 
-/* Location:              D:\@shu\Data\Office\download projects\wp-ndotovideo\WEB-INF\classes\!\gen\DbConnection.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.3
- */

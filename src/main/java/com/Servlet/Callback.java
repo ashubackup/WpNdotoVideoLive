@@ -126,7 +126,8 @@
 /* 126 */           object.put("ext_ref", ext_id);
 /*     */           
 /*     */           try {
-/* 129 */             int sentResponse = call(object);
+/* 129 */             //int sentResponse = call(object);
+					  int sentResponse = call(ani,ext_id);
 /*     */             
 /* 131 */             DBMethods.updateStatus_ext_id_check(ani, service_id);
 /* 132 */             DBMethods.saveResponse(ani, ext_id, service_id, Integer.valueOf(sentResponse));
@@ -212,37 +213,37 @@
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   
-/*     */   public static int call(JSONObject send) {
-/* 217 */     String url = "http://91.205.172.123:43972/subscription-callback/collect-cent-callback/";
+/*     */   //JSONObject send
+/*     */   public static int call(String ani, String ext_id) {
+/* 217 */     String url = "https://url.promotrking.com/subscription-callback/partner-callback?ani="+ani+"&ext_ref="+ext_id+"&service_id="+186;
 /* 218 */     HttpURLConnection urlConnection = null;
 /* 219 */     System.out.println("Nitin Sir ::: " + url);
 /*     */     try {
 /* 221 */       URL u = new URL(url);
 /* 222 */       urlConnection = (HttpURLConnection)u.openConnection();
 /* 223 */       urlConnection.setDoOutput(true);
-/* 224 */       urlConnection.setRequestMethod("POST");
-/* 225 */       urlConnection.setRequestProperty("Content-Type", "application/json");
+/* 224 */       urlConnection.setRequestMethod("GET");
+/* 225 */       //urlConnection.setRequestProperty("Content-Type", "application/json");
 /* 226 */       urlConnection.connect();
 /*     */       
-/* 228 */       System.out.println("Json " + send);
-/* 229 */       OutputStreamWriter wr = new OutputStreamWriter(urlConnection.getOutputStream());
-/* 230 */       wr.write(send.toString());
-/* 231 */       wr.flush();
-/* 232 */       StringBuilder response = null;
-/* 233 */       System.out.println("Reponse Code  :: " + urlConnection.getResponseCode());
-/*     */       
+///* 228 */       System.out.println("Json " + send);
+///* 229 */       OutputStreamWriter wr = new OutputStreamWriter(urlConnection.getOutputStream());
+///* 230 */       wr.write(send.toString());
+///* 231 */       wr.flush();
+///* 232 */       StringBuilder response = null;
+///* 233 */       System.out.println("Reponse Code  :: " + urlConnection.getResponseCode());
+///*     */       
 /* 235 */       int responseCode = urlConnection.getResponseCode();
 /*     */       
-/* 237 */       if (urlConnection.getResponseCode() == 200) {
-/* 238 */         BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-/* 239 */         String line = null;
-/* 240 */         response = new StringBuilder();
-/* 241 */         while ((line = br.readLine()) != null) {
-/* 242 */           response.append(line);
-/* 243 */           System.out.println(response);
-/*     */         } 
-/*     */       } 
+///* 237 */       if (urlConnection.getResponseCode() == 200) {
+///* 238 */         BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+///* 239 */         String line = null;
+///* 240 */         response = new StringBuilder();
+///* 241 */         while ((line = br.readLine()) != null) {
+///* 242 */           response.append(line);
+///* 243 */           System.out.println(response);
+///*     */         } 
+///*     */       } 
 /* 246 */       return responseCode;
 /* 247 */     } catch (Exception e) {
 /* 248 */       e.printStackTrace();
