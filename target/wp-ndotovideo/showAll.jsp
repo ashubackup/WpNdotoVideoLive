@@ -8,7 +8,7 @@
 DataCollector coll = new DataCollector();
 	String cat = request.getParameter("c");
 	String sub_id = request.getParameter("s");
-	String ani =  (String) session.getAttribute("user");
+	String ani =  (String) session.getAttribute("ani");
 	
 	
 	if(ani==null)

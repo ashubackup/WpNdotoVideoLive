@@ -1,5 +1,5 @@
 <%
-	String ani =  (String) session.getAttribute("user");
+	String ani =  (String) session.getAttribute("ani");
 %>
 <footer class="py-3">
 	<div class="container">

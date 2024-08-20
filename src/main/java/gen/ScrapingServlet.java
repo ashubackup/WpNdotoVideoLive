@@ -33,6 +33,8 @@
 /*    */   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 /* 34 */     PrintWriter out = response.getWriter();
 /*    */     
+
+			 
 /* 36 */     String line = "";
 /* 37 */     StringBuffer jd = new StringBuffer();
 /* 38 */     JSONObject js = null;
@@ -43,7 +45,7 @@
 /*    */     }
 /*    */ 
 /*    */ 
-/*    */ 
+/*    */ 	System.out.println("Request is :" +jd);
 /*    */     
 /* 48 */     js = new JSONObject(jd.toString());
 /*    */     

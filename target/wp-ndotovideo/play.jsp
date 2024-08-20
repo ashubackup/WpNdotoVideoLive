@@ -14,14 +14,21 @@
 
     String id = request.getParameter("id");
     String cat = request.getParameter("cat");
-	String ani = (String) session.getAttribute("user");
-	String ageid=(String)session.getAttribute("ageid");
+	String ani = (String) session.getAttribute("ani");
+	//String ani = request.getParameter("ani");
 	
-	if(ani==null || ageid==null)
+	
+	String ageid=(String)session.getAttribute("ageid");
+	ageid="1";
+	
+	System.out.println("Ani in play---"+ ani +"age id "+ ageid);
+	
+	
+	 if(ani==null || ageid==null)
 	 {
 		 response.sendRedirect("landing.jsp");	
 		 return;
-	 }
+	 }  
 	
      DataCollector coll = new DataCollector();
 	ResultSet res = coll.getvideoDetailsbyId(id, ani,"DreamStream");

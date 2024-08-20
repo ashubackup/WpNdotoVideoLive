@@ -4,7 +4,7 @@
 
 <%@page import="java.sql.ResultSet"%>
 <%
-String user = (String) session.getAttribute("user");
+String user = (String) session.getAttribute("ani");
 if(user==null)
 {
 request.setAttribute("message", "Login First");

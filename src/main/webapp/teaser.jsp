@@ -7,7 +7,7 @@
 
 <%
 String id = request.getParameter("id");
-String ani = (String) session.getAttribute("user");
+String ani = (String) session.getAttribute("ani");
 String cat = request.getParameter("cat");
 DataCollector coll = new DataCollector();
 
